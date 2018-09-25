@@ -1,0 +1,36 @@
+<!--pages/chatroom/chatroom.wxml-->
+<view class='container'>
+  <view class='chat-message' wx:for="{{ items }}" wx:key="{{ index }}">
+  <!-->
+    <text class='chat-header'>{{ userin }}</text>
+    <view class='chat-item'>
+      <image class='img fl' src='./user.png'></image>
+      <text class='message fl'>{{ messages }}</text>
+    </view>
+    <view class='chat-item'>
+      <image class='img fr img-right' src="{{userInfo.avatarUrl}}"></image>
+      <text class='message fr'>{{ messages }}</text>
+    </view>
+  <-->
+    <view wx:if="{{ item.type == '2' }}">
+      <text class='chat-header'>{{ item.nickName + '加入聊天室' }}</text>
+    </view>
+    <view wx:elif="{{ item.type == '3' }}">
+      <text class='chat-header'>{{ item.nickName + '离开聊天室' }}</text>
+    </view>
+    <view wx:else>
+      <view wx:if="{{ item.nickName == userInfo.nickName }}" class='chat-item'>
+        <image class='img fr img-right' src="{{userInfo.avatarUrl}}"></image>
+        <text class='message fr'>{{ item.message }}</text>
+      </view>
+      <view wx:else class='chat-item'>
+        <image class='img fl' src="{{item.avatarUrl}}"></image>
+        <text class='message fl'>{{ item.message }}</text>
+      </view>
+    </view>
+  </view>
+  <view class='bottom'>
+    <input type='text' id='sendtxt' confirm-hold='send' bindinput='besend' value="{{messages}}"></input>
+    <button id='sendbtn' bindtap='sendmessage'>发送</button>
+  </view>
+</view>

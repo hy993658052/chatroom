@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/chatroom/chatroom"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "聊天室",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
+  }
+}
